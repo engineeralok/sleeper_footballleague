@@ -1,14 +1,14 @@
-import React, { useState, useMemo } from 'react';
+// import React, { useState, useMemo } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Home from './pages/Home';
+// import Home from './pages/Home';
 import { useLocalStorage } from './hooks/useLocalStorage';
 import { useRotation } from './hooks/useRotation';
-import StandingsTable from './components/StandingsTable';
-import LeagueHeader from './components/LeagueHeader';
-import RotationIndicator from './components/RotationIndicator';
-import LoadingSpinner from './components/LoadingSpinner';
-import ConfigPanel from './components/ConfigPanel';
-import { mockLeagues, MockLeague } from './data/mockLeagues';
+import { StandingsTable } from './components/StandingsTable';
+import { LeagueHeader } from './components/LeagueHeader';
+import { RotationIndicator } from './components/RotationIndicator';
+import { LoadingSpinner } from './components/LoadingSpinner';
+import { ConfigPanel } from './components/ConfigPanel';
+import { mockLeagues } from './data/mockLeagues';
 
 function App() {
   const [isConfigOpen, setIsConfigOpen] = useState(false);
@@ -31,6 +31,7 @@ function App() {
         })
         .map((roster, index) => ({
           ...roster,
+          team_name: roster.display_name, // Add team_name from display_name
           rank: index + 1
         }))
     }));

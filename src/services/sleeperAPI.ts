@@ -111,6 +111,8 @@ export class SleeperAPIService {
 
           return {
             roster_id: roster.roster_id,
+            user_id: user?.user_id || '',
+            display_name: user?.display_name || '',
             team_name: teamName,
             wins: roster.wins,
             losses: roster.losses,

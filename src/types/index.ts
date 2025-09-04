@@ -5,29 +5,46 @@ export interface League {
   name: string;
   season: string;
   total_rosters: number;
+  status?: string;
+  week?: number;
+  settings?: {
+    draft_rounds?: number;
+    playoff_week_start?: number;
+    trade_deadline?: number;
+    max_keepers?: number;
+  };
 }
 
 export interface Roster {
   roster_id: number;
-  user_id: string;
-  display_name: string;
+  owner_id: string;
+  league_id: string;
+  total_points: number;
   wins: number;
   losses: number;
   ties: number;
   points_for: number;
   points_against: number;
   win_percentage: number;
+  fpts: number;
+  fpts_decimal: number;
+  fpts_against: number;
+  fpts_against_decimal: number;
 }
 
 export interface User {
   user_id: string;
   display_name: string;
+  metadata?: {
+    team_name?: string;
+  };
 }
 
 export interface TeamStanding {
   roster_id: number;
   user_id: string;
   display_name: string;
+  team_name: string;
   wins: number;
   losses: number;
   ties: number;
