@@ -1,0 +1,273 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Modern TV-Optimized Global Styles */
+:root {
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  
+  /* Modern color scheme */
+  color-scheme: dark;
+  color: #f8fafc;
+  background-color: #0f172a;
+  
+  /* Enhanced text rendering for TV displays */
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  
+  /* Modern spacing system */
+  --tv-safe-margin: 2rem;
+  --spacing-xs: 0.5rem;
+  --spacing-sm: 0.75rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+  --spacing-xl: 2rem;
+  --spacing-2xl: 3rem;
+  --spacing-3xl: 4rem;
+  
+  /* Modern border radius */
+  --radius-sm: 0.5rem;
+  --radius-md: 0.75rem;
+  --radius-lg: 1rem;
+  --radius-xl: 1.5rem;
+}
+
+/* Reset and base styles */
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+}
+
+body {
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 25%, #334155 50%, #1e293b 75%, #0f172a 100%);
+  background-attachment: fixed;
+  min-height: 100vh;
+}
+
+/* Modern TV-optimized typography */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  line-height: 1.25;
+  letter-spacing: -0.025em;
+  color: #f8fafc;
+}
+
+/* Typography scale */
+.text-display {
+  font-size: 4.5rem;
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.05em;
+}
+
+.text-heading-1 {
+  font-size: 3.75rem;
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.04em;
+}
+
+.text-heading-2 {
+  font-size: 3rem;
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -0.03em;
+}
+
+.text-body-large {
+  font-size: 1.5rem;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+.text-body {
+  font-size: 1.25rem;
+  font-weight: 400;
+  line-height: 1.6;
+}
+
+.text-caption {
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.4;
+  letter-spacing: 0.025em;
+}
+
+/* Large text for TV viewing */
+.tv-text-xs { font-size: 1rem; }
+.tv-text-sm { font-size: 1.25rem; }
+.tv-text-base { font-size: 1.5rem; }
+.tv-text-lg { font-size: 1.875rem; }
+.tv-text-xl { font-size: 2.25rem; }
+.tv-text-2xl { font-size: 3rem; }
+.tv-text-3xl { font-size: 3.75rem; }
+.tv-text-4xl { font-size: 4.5rem; }
+
+/* High contrast for TV displays */
+.tv-contrast {
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+/* Smooth animations optimized for TV */
+.tv-transition {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Modern focus styles for TV navigation */
+button:focus,
+input:focus,
+select:focus {
+  outline: 3px solid #3b82f6;
+  outline-offset: 3px;
+  border-radius: var(--radius-md);
+}
+
+/* Focus within for better accessibility */
+.focus-within\:ring:focus-within {
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.3);
+}
+
+/* Custom scrollbar for better TV experience */
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.5);
+}
+
+/* Modern utility classes for TV optimization */
+.tv-safe-area {
+  padding: var(--tv-safe-margin);
+}
+
+.modern-glow {
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.25), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+}
+
+.modern-glow-blue {
+  box-shadow: 0 10px 25px -5px rgba(59, 130, 246, 0.25), 0 8px 10px -6px rgba(59, 130, 246, 0.1);
+}
+
+.modern-glow-green {
+  box-shadow: 0 10px 25px -5px rgba(34, 197, 94, 0.25), 0 8px 10px -6px rgba(34, 197, 94, 0.1);
+}
+
+.modern-card {
+  background: rgba(30, 41, 59, 0.8);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(71, 85, 105, 0.3);
+  border-radius: var(--radius-xl);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.25), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+}
+
+.modern-surface {
+  background: rgba(15, 23, 42, 0.95);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(51, 65, 85, 0.2);
+}
+
+/* Modern animation keyframes */
+@keyframes modern-pulse {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.02);
+  }
+}
+
+@keyframes modern-glow {
+  0%, 100% {
+    box-shadow: 0 10px 25px -5px rgba(59, 130, 246, 0.25), 0 8px 10px -6px rgba(59, 130, 246, 0.1);
+  }
+  50% {
+    box-shadow: 0 20px 40px -5px rgba(59, 130, 246, 0.4), 0 12px 15px -6px rgba(59, 130, 246, 0.2);
+  }
+}
+
+@keyframes modern-slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes modern-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.modern-pulse {
+  animation: modern-pulse 2.5s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.modern-glow-animate {
+  animation: modern-glow 4s ease-in-out infinite;
+}
+
+.modern-slide-up {
+  animation: modern-slide-up 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.modern-fade-in {
+  animation: modern-fade-in 0.4s ease-out;
+}
+
+/* Responsive design for different TV sizes */
+@media (min-width: 1920px) {
+  :root {
+    font-size: 18px;
+  }
+}
+
+@media (min-width: 2560px) {
+  :root {
+    font-size: 20px;
+  }
+}
+
+@media (min-width: 3840px) {
+  :root {
+    font-size: 24px;
+  }
+}
+
+/* Print styles (hidden for TV) */
+@media print {
+  * {
+    display: none !important;
+  }
+}
