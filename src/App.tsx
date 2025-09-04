@@ -98,6 +98,7 @@ function App() {
                       <StandingsTable 
                         standings={currentLeague.standings}
                         leagueName={currentLeague.league.name}
+                        league={currentLeague.league}
                       />
                     </div>
                   </div>

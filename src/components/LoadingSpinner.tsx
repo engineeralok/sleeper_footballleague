@@ -67,7 +67,7 @@ export const LoadingSpinner: React.FC<LoadingSpinnerProps> = ({
         {/* Inner Spinner */}
         <div className="relative flex items-center justify-center" 
              style={{ width: '140px', height: '140px' }}>
-          <div className="bg-surface-card/80 backdrop-blur-sm border border-gray-700/50 rounded-2xl p-8 shadow-xl">
+          <div className="bg-surface-card/80 backdrop-blur-sm border border-gray-700/50 rounded-full w-32 h-32 flex items-center justify-center shadow-xl">
             <Loader2 className={cn(
               "text-accent-blue animate-spin",
               sizeClasses[size]
