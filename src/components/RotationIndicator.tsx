@@ -1,43 +1,43 @@
-// import React from 'react';
-// import { cn } from '../lib/utils';
-// import { Play, Pause, SkipForward, SkipBack } from 'lucide-react';
+import React from 'react';
+import { cn } from '../lib/utils';
+import { Play, Pause, SkipForward, SkipBack } from 'lucide-react';
 
-// interface RotationIndicatorProps {
-//   currentIndex: number;
-//   totalCount: number;
-//   progress: number;
-//   isPlaying: boolean;
-//   leagueNames: string[];
-//   onPlay: () => void;
-//   onPause: () => void;
-//   onNext: () => void;
-//   onPrevious: () => void;
-//   onGoTo: (index: number) => void;
-//   className?: string;
-// }
+interface RotationIndicatorProps {
+  currentIndex: number;
+  totalCount: number;
+  progress: number;
+  isPlaying: boolean;
+  leagueNames: string[];
+  onPlay: () => void;
+  onPause: () => void;
+  onNext: () => void;
+  onPrevious: () => void;
+  onGoTo: (index: number) => void;
+  className?: string;
+}
 
-// export const RotationIndicator: React.FC<RotationIndicatorProps> = ({
-//   currentIndex,
-//   totalCount,
-//   progress,
-//   isPlaying,
-//   leagueNames,
-//   onPlay,
-//   onPause,
-//   onNext,
-//   onPrevious,
-//   onGoTo,
-//   className,
-// }) => {
-//   if (totalCount === 0) {
-//     return null;
-//   }
+export const RotationIndicator: React.FC<RotationIndicatorProps> = ({
+  currentIndex,
+  totalCount,
+  progress,
+  isPlaying,
+  leagueNames,
+  onPlay,
+  onPause,
+  onNext,
+  onPrevious,
+  onGoTo,
+  className,
+}) => {
+  if (totalCount === 0) {
+    return null;
+  }
 
-//   return (
-//     <div className={cn(
-//       "fixed bottom-6 left-1/2 transform -translate-x-1/2 z-50",
-//       className
-//     )}>
+  return (
+    <div className={cn(
+      "fixed bottom-6 left-1/2 transform -translate-x-1/2 z-50",
+      className
+    )}>
       {/* <div className="bg-surface-dark/95 backdrop-blur-lg rounded-2xl border border-gray-700/50 shadow-modern p-6"> */}
       {/* Progress Bar */}
       {/* <div className="mb-6">
@@ -119,8 +119,8 @@
           </div>
         )} */}
 
-//     </div>
-//   );
-// };
+    </div>
+  );
+};
 
-// export default RotationIndicator;
+export default RotationIndicator;
