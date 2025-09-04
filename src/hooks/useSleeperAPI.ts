@@ -33,7 +33,7 @@ export const useSleeperAPI = (leagueIds: string[]): UseSleeperAPIReturn => {
       setLoading({ isLoading: false, error: errorMessage });
       console.error('Error fetching standings:', error);
     }
-  }, [leagueIds]);
+  }, [leagueIds.join(',')]); // Use join to create stable dependency
 
   const refreshStandings = useCallback(async () => {
     SleeperAPIService.clearCache();

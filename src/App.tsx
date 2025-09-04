@@ -8,34 +8,16 @@ import { LeagueHeader } from './components/LeagueHeader';
 import { RotationIndicator } from './components/RotationIndicator';
 import { LoadingSpinner } from './components/LoadingSpinner';
 import { ConfigPanel } from './components/ConfigPanel';
+import { useSleeperAPI } from './hooks/useSleeperAPI';
 import { mockLeagues } from './data/mockLeagues';
 
 function App() {
   const [isConfigOpen, setIsConfigOpen] = useState(false);
   const { config, updateConfig, resetConfig, isLoaded } = useLocalStorage();
   
-  // Transform mock data to match expected format
-  const standings = useMemo(() => {
-    return mockLeagues.map(league => ({
-      league: {
-        league_id: league.league_id,
-        name: league.name,
-        season: league.season,
-        total_rosters: league.total_rosters
-      },
-      standings: league.rosters
-        .sort((a, b) => {
-          if (b.wins !== a.wins) return b.wins - a.wins;
-          if (b.win_percentage !== a.win_percentage) return b.win_percentage - a.win_percentage;
-          return b.points_for - a.points_for;
-        })
-        .map((roster, index) => ({
-          ...roster,
-          team_name: roster.display_name, // Add team_name from display_name
-          rank: index + 1
-        }))
-    }));
-  }, []);
+  // Use Sleeper API with the provided league ID
+  const leagueIds = useMemo(() => [mockLeagues[0].league_id], []); // Memoize to prevent infinite re-renders
+  const { standings, loading, refreshStandings } = useSleeperAPI(leagueIds);
   
   // Auto-rotation logic
   const {
@@ -62,6 +44,31 @@ function App() {
     return (
       <div className="min-h-screen bg-gradient-to-br from-gray-900 via-blue-900 to-purple-900 flex items-center justify-center">
         <LoadingSpinner message="Loading configuration..." />
+      </div>
+    );
+  }
+
+  if (loading.isLoading) {
+    return (
+      <div className="min-h-screen bg-gradient-to-br from-gray-900 via-blue-900 to-purple-900 flex items-center justify-center">
+        <LoadingSpinner message="Loading league data..." />
+      </div>
+    );
+  }
+
+  if (loading.error) {
+    return (
+      <div className="min-h-screen bg-gradient-to-br from-gray-900 via-blue-900 to-purple-900 flex items-center justify-center">
+        <div className="text-center">
+          <div className="text-2xl font-bold text-red-400 mb-4">Error Loading League Data</div>
+          <div className="text-white/60 mb-6">{loading.error}</div>
+          <button 
+            onClick={refreshStandings}
+            className="px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-colors"
+          >
+            Retry
+          </button>
+        </div>
       </div>
     );
   }

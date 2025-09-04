@@ -20,7 +20,7 @@ export interface MockLeague {
 
 export const mockLeagues: MockLeague[] = [
   {
-    league_id: "championship_league",
+    league_id: "1267631943646707712",
     name: "Championship League",
     season: "2024",
     total_rosters: 12,
